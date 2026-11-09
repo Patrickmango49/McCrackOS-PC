@@ -2,40 +2,38 @@ name: Build McCrack-COS live image
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - "auto/**"
-      - "config/**"
-      - "branding/**"
-      - "scripts/**"
-      - ".github/workflows/build-live-image.yml"
 
 permissions:
   contents: read
+
+concurrency:
+  group: mccrack-cos-live-image
+  cancel-in-progress: true
 
 jobs:
   build:
     name: Build Debian Trixie KDE live image
     runs-on: ubuntu-24.04
     timeout-minutes: 360
-    container:
-      image: debian:trixie
     steps:
-      - name: Install build dependencies
-        run: |
-          apt-get update
-          DEBIAN_FRONTEND=noninteractive apt-get install -y \
-            ca-certificates \
-            live-build \
-            xorriso \
-            git
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Configure and build live image
+      - name: Install build dependencies
         run: |
-          sh auto/config
-          lb build
+          sudo apt-get update
+          sudo apt-get install -y \
+            live-build \
+            xorriso \
+            debootstrap \
+            squashfs-tools \
+            grub-pc-bin \
+            grub-efi-amd64-bin \
+            mtools \
+            dosfstools
+      - name: Configure live image
+        run: sudo sh auto/config
+      - name: Build live image
+        run: sudo lb build
       - name: Verify image exists
         run: |
           test -s live-image-amd64.hybrid.iso
