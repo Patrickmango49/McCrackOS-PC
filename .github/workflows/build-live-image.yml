@@ -25,16 +25,16 @@ jobs:
       - name: Install build dependencies
         run: |
           apt-get update
-          DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+          DEBIAN_FRONTEND=noninteractive apt-get install -y \
             ca-certificates \
             live-build \
             xorriso \
             git
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Build live image
+      - name: Configure and build live image
         run: |
-          lb config
+          sh auto/config
           lb build
       - name: Verify image exists
         run: |
