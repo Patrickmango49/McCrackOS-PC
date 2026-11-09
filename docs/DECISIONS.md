@@ -1,18 +1,22 @@
 # Technical Decision Log
 
-Record important project decisions here so the build remains consistent.
+## Approved foundation
 
-## Pending decisions
+- **Linux base:** Debian 13 (Trixie), pinned by codename for predictable builds.
+- **Architecture:** amd64 (64-bit Intel/AMD PCs) for the first milestone.
+- **Desktop:** KDE Plasma.
+- **Image builder:** Debian Live `live-build`.
+- **Initial output:** VM-testable live ISO; installer work comes after the live desktop is validated.
+- **Build automation:** GitHub Actions using a Debian Trixie container.
 
-- [ ] Linux base distribution and release
-- [ ] Desktop environment
-- [ ] Live-image / installer build tool
-- [ ] Application packaging approach
-- [ ] ISO build and release workflow
+## Why this approach
 
-## Current recommendations
+Debian Live's `live-build` assembles a live system from a configuration tree and package lists. This lets the repository describe McCrack customizations without storing a full copy of Debian in Git. KDE Plasma provides the desktop shell, while Debian supplies the kernel, system services, package management, and hardware support.
 
-- Linux base: Debian (not yet approved)
-- Desktop: KDE Plasma (not yet approved)
-- Build model: reproducible configuration stored in Git; retrieve base packages during build
-- Testing: virtual machine first, physical hardware only after compatibility checks
+## Future decisions
+
+- Login and desktop theme implementation
+- McCrack application packaging and launchers
+- Installer technology and disk-install workflow
+- Update and release strategy
+- Additional architectures, if needed
