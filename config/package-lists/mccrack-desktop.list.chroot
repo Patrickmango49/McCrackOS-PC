@@ -9,6 +9,9 @@ ark
 systemsettings
 kde-spectacle
 kcalc
+breeze
+breeze-gtk-theme
+papirus-icon-theme
 
 # Browser and everyday utilities
 firefox-esr
@@ -20,6 +23,12 @@ curl
 wget
 ca-certificates
 htop
+
+# Fonts and startup visuals
+fonts-inter
+fonts-noto-core
+plymouth
+plymouth-themes
 
 # Firmware bundle for broader PC hardware support
 firmware-linux
