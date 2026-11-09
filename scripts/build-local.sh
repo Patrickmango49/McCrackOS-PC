@@ -10,14 +10,14 @@ fi
 
 if ! command -v lb >/dev/null 2>&1; then
   echo "live-build is not installed. On Debian Trixie, install it with:"
-  echo "  sudo apt update && sudo apt install live-build"
+  echo "  sudo apt update && sudo apt install live-build xorriso"
   exit 1
 fi
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "${ROOT_DIR}"
 
-lb config
+sh auto/config
 lb build
 
 echo
