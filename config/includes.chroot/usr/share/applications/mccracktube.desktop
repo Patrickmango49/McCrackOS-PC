@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=McCrackTube
+GenericName=Video
+Comment=Open the McCrack video experience
+Exec=firefox-esr --new-window https://mccracktube.onrender.com
+Icon=video-x-generic
+Terminal=false
+Categories=AudioVideo;Video;Player;
+StartupNotify=true
