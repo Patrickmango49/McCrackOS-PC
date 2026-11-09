@@ -2,7 +2,7 @@
 
 ## What this build produces
 
-The first milestone is a **Debian Trixie KDE Plasma live ISO** for 64-bit PCs. It is intended for virtual-machine testing. It is not yet the final installable McCrack-COS release and must not be treated as ready to replace an existing operating system.
+The first milestone is a **Debian 13 (Trixie) KDE Plasma live ISO** for 64-bit PCs. It is intended for virtual-machine testing. It is not yet the final installable McCrack-COS release and must not be treated as ready to replace an existing operating system.
 
 ## Automated build
 
@@ -12,7 +12,7 @@ The first milestone is a **Debian Trixie KDE Plasma live ISO** for 64-bit PCs. I
 4. Wait for the job to finish.
 5. Download the `McCrack-COS-live-amd64` artifact from the completed run.
 
-The build runs inside a Debian Trixie container so the build environment matches the selected target release.
+The build runs inside a Debian Trixie container and uses the configuration in `auto/config`.
 
 ## Local build
 
@@ -20,7 +20,7 @@ Use a disposable Debian Trixie amd64 virtual machine with sufficient free disk s
 
 ```sh
 sudo apt update
-sudo apt install live-build
+sudo apt install live-build xorriso
 ```
 
 Clone the repository, enter its directory, and run:
@@ -41,7 +41,7 @@ The resulting image should be named `live-image-amd64.hybrid.iso`.
 - Confirm the system can shut down and reboot cleanly.
 - Record errors and the VM configuration used.
 
-Do not install this early image on a primary computer. A live image is not proof that the installer, storage configuration, or every hardware device is supported.
+Do not install this early image on a primary computer. A live image is not proof that an installer, storage configuration, or every hardware device is supported. Installer support is a later milestone.
 
 ## Build troubleshooting
 
