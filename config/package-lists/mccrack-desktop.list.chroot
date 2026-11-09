@@ -1,0 +1,25 @@
+# Core KDE Plasma desktop
+kde-plasma-desktop
+sddm
+plasma-nm
+plasma-pa
+dolphin
+konsole
+ark
+systemsettings
+kde-spectacle
+kcalc
+
+# Browser and everyday utilities
+firefox-esr
+network-manager
+network-manager-config-connectivity-debian
+sudo
+git
+curl
+wget
+ca-certificates
+htop
+
+# Firmware bundle for broader PC hardware support
+firmware-linux
