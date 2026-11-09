@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080d12">
+<title>Welcome to McCrack-COS</title>
+<style>
+:root{color-scheme:dark;--bg:#080d12;--panel:#111a22;--line:#20313c;--cyan:#00d2e6;--muted:#9aabb6;--white:#f3f8fa}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% 0%,#07343d 0,transparent 42%),var(--bg);color:var(--white);font:16px/1.6 Inter,system-ui,sans-serif}
+main{width:min(920px,calc(100% - 36px));margin:54px auto 80px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--cyan);font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.mark{width:34px;height:34px;border:1px solid #147c89;border-radius:11px;display:grid;place-items:center;background:#09252b;font-size:18px}
+h1{font-size:clamp(38px,7vw,66px);line-height:1.04;letter-spacing:-.055em;margin:28px 0 14px}
+h1 span{color:var(--cyan)}.lead{max-width:660px;color:var(--muted);font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:34px}
+article{background:linear-gradient(145deg,#14212b,#0e151c);border:1px solid var(--line);border-radius:18px;padding:22px}
+h2{font-size:17px;margin:0 0 8px}p{color:var(--muted);margin:0}
+.note{margin-top:20px;border-left:3px solid var(--cyan);padding:14px 17px;background:#0d2027;border-radius:0 12px 12px 0;color:#c4d5dc}
+footer{margin-top:38px;color:#70838e;font-size:13px}
+</style>
+</head>
+<body><main>
+<div class="brand"><div class="mark">M</div> McCrack Project</div>
+<h1>Welcome to<br><span>McCrack-COS.</span></h1>
+<p class="lead">A desktop experience built on Debian and KDE Plasma, with a dark interface and cyan details. This is an early live-build preview.</p>
+<section class="grid">
+<article><h2>Find your apps</h2><p>Open the application launcher to find Firefox, Dolphin, Konsole, System Settings, and the included KDE tools.</p></article>
+<article><h2>Get connected</h2><p>Use the network icon in the panel to connect to Wi-Fi or a wired network. Network availability depends on your hardware and firmware.</p></article>
+<article><h2>Explore McCrack</h2><p>McCrackify and McCrackTube are available in the application menu. They open the web versions in Firefox and require an internet connection.</p></article>
+<article><h2>Personalize your desktop</h2><p>Open System Settings to adjust display, sound, appearance, keyboard, and other desktop preferences.</p></article>
+</section>
+<div class="note"><strong>Preview build:</strong> This image is intended for testing in a virtual machine. It is not an installer release. A live session may not preserve changes after shutdown.</div>
+<footer>McCrack-COS · Debian 13 · KDE Plasma · Built by the McCrack Project</footer>
+</main></body></html>
