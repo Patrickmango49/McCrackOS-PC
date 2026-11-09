@@ -1,5 +1,9 @@
 # System Configuration
 
-This folder will hold the selected Linux image-build configuration, package selections, desktop defaults, and system settings.
+The first image targets Debian 13 (Trixie), amd64, and KDE Plasma.
 
-The Linux base and desktop are still awaiting confirmation. Avoid adding distribution-specific configuration until those decisions are recorded in `docs/DECISIONS.md`.
+- `../auto/config` defines the Debian Live image settings.
+- `package-lists/mccrack-desktop.list.chroot` selects software installed into the live system.
+- Future desktop defaults, branding, hooks, and system settings will be added here after the first clean live image boots successfully.
+
+The first ISO is for virtual-machine testing. Installer support and physical-device installation are separate milestones.
