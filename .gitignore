@@ -1,0 +1,29 @@
+# Generated operating-system images
+*.iso
+*.img
+*.raw
+*.qcow2
+*.vdi
+*.vmdk
+
+# Build output and temporary files
+/build/
+/out/
+/output/
+/work/
+/cache/
+/.tmp/
+
+# Package and build caches
+*.deb
+*.rpm
+*.tar
+*.tar.gz
+*.log
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
