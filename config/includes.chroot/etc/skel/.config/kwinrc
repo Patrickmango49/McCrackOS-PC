@@ -1,0 +1,8 @@
+[Windows]
+FocusPolicy=ClickToFocus
+BorderlessMaximizedWindows=true
+
+[Compositing]
+Backend=OpenGL
+GLCore=true
+LatencyPolicy=Low
