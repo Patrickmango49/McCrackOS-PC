@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#05080d"/>
+      <stop offset=".55" stop-color="#0a111a"/>
+      <stop offset="1" stop-color="#071b23"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#00d9ee" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#00d9ee" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="arc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00e5ff" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#007d99" stop-opacity=".03"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <ellipse cx="1430" cy="520" rx="720" ry="620" fill="url(#glow)"/>
+  <circle cx="1430" cy="520" r="430" fill="none" stroke="url(#arc)" stroke-width="2"/>
+  <circle cx="1430" cy="520" r="510" fill="none" stroke="#00cce8" stroke-opacity=".12" stroke-width="1"/>
+  <circle cx="1430" cy="520" r="590" fill="none" stroke="#00cce8" stroke-opacity=".08" stroke-width="1"/>
+  <path d="M-100 920 C360 690 510 1160 930 900 S1530 600 2020 260" fill="none" stroke="#00d9ee" stroke-opacity=".12" stroke-width="2"/>
+  <path d="M-100 980 C360 750 540 1200 980 950 S1580 650 2020 310" fill="none" stroke="#00d9ee" stroke-opacity=".08" stroke-width="1"/>
+  <g fill="#dffaff" font-family="Inter,Arial,sans-serif">
+    <text x="150" y="470" font-size="28" letter-spacing="11" opacity=".62">WELCOME TO</text>
+    <text x="142" y="570" font-size="92" font-weight="700" letter-spacing="-3">McCrack<tspan fill="#00d9ee">-COS</tspan></text>
+    <text x="152" y="635" font-size="23" letter-spacing="3" opacity=".58">YOUR DESKTOP. YOUR ECOSYSTEM.</text>
+  </g>
+  <path d="M152 690h170" stroke="#00d9ee" stroke-width="4" stroke-linecap="round"/>
+</svg>
