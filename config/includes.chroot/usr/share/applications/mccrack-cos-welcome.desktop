@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Welcome to McCrack-COS
+GenericName=System Introduction
+Comment=Learn the basics of this McCrack-COS preview
+Exec=firefox-esr --new-window file:///usr/share/mccrack-cos/welcome.html
+Icon=help-about
+Terminal=false
+Categories=System;
+StartupNotify=true
