@@ -2,6 +2,14 @@ name: Build McCrack-COS live image
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "auto/**"
+      - "config/**"
+      - "branding/**"
+      - "scripts/**"
+      - ".github/workflows/build-live-image.yml"
 
 permissions:
   contents: read
