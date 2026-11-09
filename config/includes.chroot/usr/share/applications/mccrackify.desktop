@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=McCrackify
+GenericName=Music
+Comment=Open the McCrack music experience
+Exec=firefox-esr --new-window https://patrickmango49.github.io/McCrackify/
+Icon=audio-x-generic
+Terminal=false
+Categories=AudioVideo;Audio;Player;
+StartupNotify=true
