@@ -12,7 +12,7 @@ The first milestone is a **Debian 13 (Trixie) KDE Plasma live ISO** for 64-bit P
 4. Wait for the job to finish.
 5. Download the `McCrack-COS-live-amd64` artifact from the completed run.
 
-The build runs inside a Debian Trixie container and uses the configuration in `auto/config`.
+The GitHub Actions job runs on an Ubuntu 24.04 hosted runner. `live-build` creates the Debian Trixie amd64 system using the configuration in `auto/config`.
 
 ## Local build
 
