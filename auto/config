@@ -15,7 +15,7 @@ lb config noauto \
   --mirror-binary "http://deb.debian.org/debian/" \
   --archive-areas "main contrib non-free non-free-firmware" \
   --apt-recommends true \
-  --debian-installer none \
+  --debian-installer false \
   --iso-application "McCrack-COS" \
   --iso-volume "MCCRACK_COS" \
   --iso-publisher "McCrack Project" \
