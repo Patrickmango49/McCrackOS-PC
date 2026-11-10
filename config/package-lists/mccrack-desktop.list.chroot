@@ -1,3 +1,6 @@
+# ISO boot support
+isolinux
+
 # Core KDE Plasma desktop
 kde-plasma-desktop
 sddm
