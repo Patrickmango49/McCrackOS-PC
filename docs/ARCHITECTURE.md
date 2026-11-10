@@ -7,10 +7,10 @@ McCrack-COS will be a customized Linux distribution assembled from an existing L
 ## Layers
 
 1. **Linux base** — kernel, boot process, system services, package management, and hardware support supplied by the selected distribution.
-2. **Desktop environment** — window manager, panels, launcher, desktop settings, and session. KDE Plasma is the current recommendation, pending confirmation.
+2. **Desktop environment** — KDE Plasma 6 on Debian 13, including the window manager, panels, launcher, desktop settings, and session.
 3. **McCrack configuration** — visual theme, icons, wallpapers, login experience, defaults, and system configuration.
 4. **Applications** — desktop launchers and packaging/integration for McCrack web applications.
-5. **Image build** — reproducible configuration that assembles a live/installer ISO from the selected base and packages.
+5. **Image build** — Debian Live (`live-build`) assembles a reproducible amd64 hybrid live ISO from Debian 13 and the selected packages. The first milestone is a VM-testable live image; installer support is deliberately deferred.
 
 ## Repository responsibilities
 
