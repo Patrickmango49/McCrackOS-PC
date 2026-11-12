@@ -37,7 +37,9 @@ jobs:
             grub-pc-bin \
             grub-efi-amd64-bin \
             mtools \
-            dosfstools
+            dosfstools \
+            isolinux \
+            syslinux-common
       - name: Patch live-build Contents index lookup
         run: |
           # Debian publishes Contents indexes beneath each component directory.
@@ -48,6 +50,15 @@ jobs:
             /usr/lib/live/build/lb_chroot_linux-image
       - name: Configure live image
         run: sudo sh auto/config
+      - name: Vendor ISOLINUX boot files
+        run: |
+          # Ubuntu's live-build bootloader theme contains absolute symlinks.
+          # Dereference them on the host before live-build copies the theme into
+          # its chroot, where those host paths are otherwise unavailable.
+          sudo mkdir -p config/bootloaders
+          sudo cp -aL /usr/share/live/build/bootloaders/isolinux config/bootloaders/isolinux
+          test -s config/bootloaders/isolinux/isolinux.bin
+          test -s config/bootloaders/isolinux/vesamenu.c32
       - name: Build live image
         run: sudo lb build
       - name: Verify image exists
