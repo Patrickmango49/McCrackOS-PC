@@ -50,15 +50,14 @@ jobs:
             /usr/lib/live/build/lb_chroot_linux-image
       - name: Configure live image
         run: sudo sh auto/config
-      - name: Vendor ISOLINUX boot files
+      - name: Provide ISOLINUX files expected by live-build
         run: |
-          # Ubuntu's live-build bootloader theme contains absolute symlinks.
-          # Dereference them on the host before live-build copies the theme into
-          # its chroot, where those host paths are otherwise unavailable.
-          sudo mkdir -p config/bootloaders
-          sudo cp -aL /usr/share/live/build/bootloaders/isolinux config/bootloaders/isolinux
-          test -s config/bootloaders/isolinux/isolinux.bin
-          test -s config/bootloaders/isolinux/vesamenu.c32
+          # live-build's syslinux helper expects these at /root/isolinux.
+          # Ubuntu ships the actual binaries in the ISOLINUX and syslinux module directories.
+          sudo install -D -m 0644 /usr/lib/ISOLINUX/isolinux.bin /root/isolinux/isolinux.bin
+          sudo install -D -m 0644 /usr/lib/syslinux/modules/bios/vesamenu.c32 /root/isolinux/vesamenu.c32
+          test -s /root/isolinux/isolinux.bin
+          test -s /root/isolinux/vesamenu.c32
       - name: Build live image
         run: sudo lb build
       - name: Verify image exists
