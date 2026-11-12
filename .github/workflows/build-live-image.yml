@@ -51,13 +51,30 @@ jobs:
       - name: Configure live image
         run: sudo sh auto/config
       - name: Provide ISOLINUX files expected by live-build
+        shell: bash
         run: |
-          # live-build's syslinux helper expects these at /root/isolinux.
-          # Ubuntu ships the actual binaries in the ISOLINUX and syslinux module directories.
-          sudo install -D -m 0644 /usr/lib/ISOLINUX/isolinux.bin /root/isolinux/isolinux.bin
-          sudo install -D -m 0644 /usr/lib/syslinux/modules/bios/vesamenu.c32 /root/isolinux/vesamenu.c32
-          test -s /root/isolinux/isolinux.bin
-          test -s /root/isolinux/vesamenu.c32
+          set -euo pipefail
+          sudo mkdir -p /root/isolinux
+
+          # Resolve the installed package paths rather than assuming a fixed layout.
+          isolinux_path="$(dpkg -L isolinux | grep -E '/isolinux\.bin$' | head -n 1 || true)"
+          vesamenu_path="$(dpkg -L syslinux-common | grep -E '/vesamenu\.c32$' | grep '/bios/' | head -n 1 || true)"
+
+          if [[ -z "$isolinux_path" || ! -s "$isolinux_path" ]]; then
+            echo "Could not locate isolinux.bin from the installed isolinux package."
+            dpkg -L isolinux
+            exit 1
+          fi
+          if [[ -z "$vesamenu_path" || ! -s "$vesamenu_path" ]]; then
+            echo "Could not locate BIOS vesamenu.c32 from the installed syslinux-common package."
+            dpkg -L syslinux-common
+            exit 1
+          fi
+
+          sudo install -D -m 0644 "$isolinux_path" /root/isolinux/isolinux.bin
+          sudo install -D -m 0644 "$vesamenu_path" /root/isolinux/vesamenu.c32
+          sudo test -s /root/isolinux/isolinux.bin
+          sudo test -s /root/isolinux/vesamenu.c32
       - name: Build live image
         run: sudo lb build
       - name: Verify image exists
